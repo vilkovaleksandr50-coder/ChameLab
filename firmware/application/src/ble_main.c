@@ -779,6 +779,7 @@ static void battery_level_meas_timeout_handler(void *p_context) {
     if (m_lf_adc_callback != NULL) {
         return;
     }
+}
 
     // Here we fetch the conversion result from the ADC, convert the value into
     // percentage and send it to peer.
