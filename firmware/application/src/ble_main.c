@@ -779,7 +779,6 @@ static void battery_level_meas_timeout_handler(void *p_context) {
     if (m_lf_adc_callback != NULL) {
         return;
     }
-}
 
     // Here we fetch the conversion result from the ADC, convert the value into
     // percentage and send it to peer.
@@ -805,11 +804,12 @@ static void battery_level_meas_timeout_handler(void *p_context) {
     // check low battery level, if level == 0, we can try to shutdown.
     if (percentage_batt_lvl == 0) {
         NRF_LOG_INFO("battery too low, try to shutdown...");
-        // g_is_low_battery_shutdown = true;     <-- закомментировать
-        // sleep_timer_start(SLEEP_NO_BATTERY_SHUTDOWN); <-- закомментировать
+        // g_is_low_battery_shutdown = true;     <-- закомментировано против ложного сна
+        // sleep_timer_start(SLEEP_NO_BATTERY_SHUTDOWN); <-- закомментировано против ложного сна
     } else {
         g_is_low_battery_shutdown = false;
     }
+}
 
 void create_battery_timer(void) {
     ret_code_t err_code;
